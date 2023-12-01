@@ -1,0 +1,21 @@
+div.container {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+.div-task {
+  display: flex;
+  justify-content: center;
+  margin-top: 1.2em;
+  .list-task {
+    display: flex;
+    gap: 10px;
+    background-color: #eff285;
+    border-radius: 50px;
+    flex-grow: 0;
+    p {
+      font-size: 1.2em;
+      font-weight: 500;
+    }
+  }
+}

@@ -1,13 +1,24 @@
-<ng-container *ngFor="let task of tasks">
-  <ng-container *ngIf="task.completed === true">
-    <p>
-      <button type="button" (click)="removeTask(task.id)">
-        <i class="fas fa-times-circle"></i>
-      </button>
-      {{ task.title }}
-      <button type="button" (click)="changeComplatedBool(task.id)">
-        <i class="fas fa-check-circle"></i>
-      </button>
-    </p>
-  </ng-container>
-</ng-container>
+<div class="container">
+  <ng-container *ngIf="showMessage; else Charge"
+    ><p>{{ message }}</p></ng-container
+  >
+  <ng-template #Charge>
+    <ng-container *ngFor="let task of tasks">
+      <div *ngIf="task.completed === true" class="div-task">
+        <div class="list-task">
+          <button type="button" (click)="removeTask(task.id)">
+            <i class="fas fa-times-circle my-red"></i>
+          </button>
+          <p>{{ task.title }}</p>
+          <button type="button" (click)="changeComplatedBool(task.id)">
+            <i class="fas fa-trash-restore-alt my-blue"></i>
+          </button>
+        </div>
+      </div>
+    </ng-container>
+
+    <ng-container *ngIf="bool">
+      <p>Do nothing</p>
+    </ng-container>
+  </ng-template>
+</div>

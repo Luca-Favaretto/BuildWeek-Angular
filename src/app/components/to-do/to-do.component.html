@@ -1,22 +1,30 @@
-<input type="text" id="addTask" [(ngModel)]="valueInput" />
-<button type="button" (click)="addTask()">
-  <i class="fas fa-plus-circle"></i>
-</button>
-<ng-container *ngIf="tasks; else allDo">
-  <ng-container *ngFor="let task of tasks">
-    <ng-container *ngIf="task.completed === false">
-      <p>
-        <button type="button" (click)="removeTask(task.id)">
-          <i class="fas fa-times-circle"></i>
-        </button>
-        {{ task.title }}
-        <button type="button" (click)="changeComplatedBool(task.id)">
-          <i class="fas fa-check-circle"></i>
-        </button>
-      </p>
+<div class="container">
+  <ng-container *ngIf="showMessage; else Charge"
+    ><p>{{ message }}</p></ng-container
+  >
+  <ng-template #Charge>
+    <div>
+      <input type="text" id="addTask" [(ngModel)]="valueInput" />
+      <button type="button" (click)="addTask()">
+        <i class="fas fa-plus-circle my-blue"></i>
+      </button>
+    </div>
+    <ng-container *ngFor="let task of tasks">
+      <div *ngIf="task.completed === false" class="div-task">
+        <div class="list-task">
+          <button type="button" (click)="removeTask(task.id)">
+            <i class="fas fa-times-circle my-red"></i>
+          </button>
+          <p>{{ task.title }}</p>
+          <button type="button" (click)="changeComplatedBool(task.id)">
+            <i class="fas fa-check-circle my-green"></i>
+          </button>
+        </div>
+      </div>
     </ng-container>
-  </ng-container>
-</ng-container>
-<ng-template #allDo>
-  <p>Good Boy!!</p>
-</ng-template>
+
+    <ng-container *ngIf="bool">
+      <p>Good boy</p>
+    </ng-container>
+  </ng-template>
+</div>

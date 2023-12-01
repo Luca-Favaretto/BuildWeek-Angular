@@ -1,15 +1,18 @@
 ul {
+  background-color: #8c234a;
   padding-left: 0;
   text-align: center;
+  margin: 0;
 
   li {
     display: inline-block;
     margin: 2rem;
 
     a {
-      font-size: 2rem;
+      font-size: 3rem;
       text-decoration: none;
       font-family: "Vina Sans", sans-serif;
+      color: #f20544;
     }
   }
 }

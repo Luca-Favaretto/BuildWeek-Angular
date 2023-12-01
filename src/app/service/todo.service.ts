@@ -8,8 +8,11 @@ export class TodoService {
   tasks: Task[] = [
     { id: 1, title: 'cleaning my car', completed: true },
     { id: 2, title: 'shopping', completed: true },
-    { id: 3, title: 'homework', completed: true },
+    { id: 3, title: 'homework', completed: false },
   ];
+  showMessage: boolean = false;
+  message: string = 'We work for you';
+
   constructor() {}
   returnTasks() {
     return this.tasks;
@@ -30,7 +33,17 @@ export class TodoService {
       task.id === id ? { ...task, completed: !task.completed } : task
     );
   }
-  wait1sec() {
-    setTimeout(function () {}, 1000);
+  wait2sec(): Promise<void> {
+    return new Promise<void>((resolve) => {
+      setTimeout(() => {
+        resolve();
+      }, 500);
+    });
+  }
+  areAllTasksTrue(): boolean {
+    return this.tasks.every((task) => task.completed === true);
+  }
+  areAllTasksFalse(): boolean {
+    return this.tasks.every((task) => task.completed === false);
   }
 }

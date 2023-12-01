@@ -8,4 +8,26 @@ body {
   margin: 0;
   padding: 0;
   font-family: "Roboto", sans-serif;
+  background-color: #f299b9;
+}
+$my-red: rgba(182, 2, 2, 0.808);
+$my-blue: #0168af;
+$my-green: #028c30;
+
+.my-red {
+  color: $my-red;
+}
+.my-blue {
+  color: $my-blue;
+}
+.my-green {
+  color: $my-green;
+}
+
+button {
+  border: 0px;
+  background-color: transparent;
+  i {
+    font-size: 2rem;
+  }
 }

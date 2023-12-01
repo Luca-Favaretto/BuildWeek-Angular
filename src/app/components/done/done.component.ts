@@ -11,24 +11,52 @@ export class DoneComponent implements OnInit {
   constructor(private serv: TodoService) {}
 
   tasks!: Task[];
+  bool: boolean = false;
+  showMessage: boolean = false;
+  message: string = this.serv.message;
 
   valueInput: string = '';
 
-  ngOnInit(): void {
+  async ngOnInit() {
+    console.log(this.tasks);
+    this.showMessage = true;
+    await this.serv.wait2sec();
+    this.showMessage = false;
+    console.log(this.showMessage);
     this.tasks = this.serv.returnTasks();
   }
-  ngDoCheck(): void {
+  ngDoCheck() {
     this.tasks = this.serv.returnTasks();
+    console.log(this.bool);
+
+    this.bool = this.serv.areAllTasksFalse();
+
+    console.log(this.bool);
   }
 
-  addTask() {
-    this.serv.addTask(this.valueInput);
+  async addTask() {
+    this.showMessage = true;
+
+    await this.serv.wait2sec();
+    this.showMessage = false;
+    if (this.valueInput !== '') {
+      this.serv.addTask(this.valueInput);
+      this.valueInput = '';
+    }
   }
-  changeComplatedBool(id: number) {
+  async changeComplatedBool(id: number) {
+    this.showMessage = true;
+
+    await this.serv.wait2sec();
+    this.showMessage = false;
     this.serv.changeComplatedBool(id);
     console.log(this.serv.tasks);
   }
-  removeTask(id: number) {
+  async removeTask(id: number) {
+    this.showMessage = true;
+
+    await this.serv.wait2sec();
+    this.showMessage = false;
     this.serv.removeTask(id);
   }
 }
