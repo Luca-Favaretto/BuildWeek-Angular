@@ -21,7 +21,6 @@ export class ToDoComponent implements OnInit, DoCheck {
     this.showMessage = true;
     await this.serv.wait2sec();
     this.showMessage = false;
-    console.log(this.showMessage);
     this.tasks = this.serv.returnTasks();
   }
   ngDoCheck() {
@@ -45,7 +44,6 @@ export class ToDoComponent implements OnInit, DoCheck {
     await this.serv.wait2sec();
     this.showMessage = false;
     this.serv.changeComplatedBool(id);
-    console.log(this.serv.tasks);
   }
   async removeTask(id: number) {
     this.showMessage = true;

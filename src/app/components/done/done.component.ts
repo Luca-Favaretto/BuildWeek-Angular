@@ -18,20 +18,14 @@ export class DoneComponent implements OnInit {
   valueInput: string = '';
 
   async ngOnInit() {
-    console.log(this.tasks);
     this.showMessage = true;
     await this.serv.wait2sec();
     this.showMessage = false;
-    console.log(this.showMessage);
     this.tasks = this.serv.returnTasks();
   }
   ngDoCheck() {
     this.tasks = this.serv.returnTasks();
-    console.log(this.bool);
-
     this.bool = this.serv.areAllTasksFalse();
-
-    console.log(this.bool);
   }
 
   async addTask() {
@@ -50,7 +44,6 @@ export class DoneComponent implements OnInit {
     await this.serv.wait2sec();
     this.showMessage = false;
     this.serv.changeComplatedBool(id);
-    console.log(this.serv.tasks);
   }
   async removeTask(id: number) {
     this.showMessage = true;
