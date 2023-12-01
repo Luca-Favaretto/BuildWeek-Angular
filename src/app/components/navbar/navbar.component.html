@@ -1,1 +1,15 @@
-<p>navbar works!</p>
+<ul>
+  <li>
+    <a
+      [routerLinkActiveOptions]="{ exact: true }"
+      [routerLink]="['/']"
+      routerLinkActive="router-link-active"
+      >To Do</a
+    >
+  </li>
+  <li>
+    <a [routerLink]="['/done']" routerLinkActive="router-link-active"
+      >Complated</a
+    >
+  </li>
+</ul>
