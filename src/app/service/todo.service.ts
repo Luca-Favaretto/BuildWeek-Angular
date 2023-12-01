@@ -14,12 +14,20 @@ export class TodoService {
   returnTasks() {
     return this.tasks;
   }
-  addtasks(data: string) {
+  addTasks(data: string) {
     let newTask: Task = {
       id: this.tasks[this.tasks.length - 1].id + 1,
       title: data,
       completed: false,
     };
     this.tasks.push(newTask);
+  }
+  removeTasks(id: number) {
+    this.tasks = this.tasks.filter((task) => task.id !== id);
+  }
+  changeComplatedBool(id: number) {
+    this.tasks = this.tasks.map((task) =>
+      task.id === id ? { ...task, completed: !task.completed } : task
+    );
   }
 }
