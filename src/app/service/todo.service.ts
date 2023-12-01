@@ -37,7 +37,7 @@ export class TodoService {
     return new Promise<void>((resolve) => {
       setTimeout(() => {
         resolve();
-      }, 500);
+      }, 2000);
     });
   }
   areAllTasksTrue(): boolean {
