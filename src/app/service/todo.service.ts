@@ -19,7 +19,7 @@ export class TodoService {
   }
   addTask(data: string) {
     let newTask: Task = {
-      id: this.tasks[this.tasks.length - 1].id + 1,
+      id: this.tasks.length ? this.tasks[this.tasks.length - 1].id + 1 : 1,
       title: data,
       completed: false,
     };
@@ -37,7 +37,7 @@ export class TodoService {
     return new Promise<void>((resolve) => {
       setTimeout(() => {
         resolve();
-      }, 2000);
+      }, 500);
     });
   }
   areAllTasksTrue(): boolean {
